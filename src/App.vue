@@ -4,23 +4,49 @@
     <section>
       <nav class="menu-left">
         <ul class="menu-left__list">
-          <li class="menu-left__list--item">CalculatorVue</li>
-          <li class="menu-left__list--item">ToDoVue</li>
+          <li
+            class="menu-left__list--item"
+            @click="selectComponent('CalculatorVue')"
+          >
+            CalculatorVue
+          </li>
+          <li class="menu-left__list--item" @click="selectComponent('ToDoVue')">
+            ToDoVue
+          </li>
         </ul>
       </nav>
-      <main><calculator-vue></calculator-vue></main>
+      <main><component :is="activeComponent"></component></main>
     </section>
   </div>
 </template>
 
 <script>
 import CalculatorVue from 'vue-calculator-ninjaonbreak/src/App.vue';
-// import ToDoVue from 'vue-todo-ninjaonbreak/src/App.vue';
+import ToDoVue from 'vue-todo-ninjaonbreak/src/App.vue';
 
 export default {
   components: {
     CalculatorVue,
-    // ToDoVue,
+    ToDoVue,
+  },
+
+  data() {
+    return {
+      activeComponent: '',
+    };
+  },
+
+  // computed: {
+  //   activeComponent() {
+  //     return CalculatorVue;
+  //   },
+  // },
+
+  methods: {
+    selectComponent(value) {
+      console.log(value);
+      this.activeComponent = value;
+    },
   },
 };
 </script>
