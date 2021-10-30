@@ -1,8 +1,8 @@
 {
-  "name": "vue-webpack-setup",
-  "version": "1.0.0",
+  "name": "dashboard_vue_apps",
+  "version": "0.1.5",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development"
@@ -36,7 +36,8 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "vue-calculator-ninjaonbreak": "https://github.com/ninjaOnBreak/calculator_vue.git#main",
-    "vue-todo-ninjaonbreak": "https://github.com/ninjaOnBreak/todo_vue_first.git#main"
+    "vue-todo-ninjaonbreak": "https://github.com/ninjaOnBreak/todo_vue_first.git#main",
+    "vue-currency_exchange": "https://github.com/ninjaOnBreak/exchange_vue.git#main"
   },
   "browserslist": [
     "Chrome >= 45",

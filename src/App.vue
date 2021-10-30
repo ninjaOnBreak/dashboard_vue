@@ -13,6 +13,12 @@
           <li class="menu-left__list--item" @click="selectComponent('ToDoVue')">
             ToDoVue
           </li>
+          <li
+            class="menu-left__list--item"
+            @click="selectComponent('CurrencyExchangeVue')"
+          >
+            CurrencyExchange
+          </li>
         </ul>
       </nav>
       <main><component :is="activeComponent"></component></main>
@@ -23,11 +29,13 @@
 <script>
 import CalculatorVue from 'vue-calculator-ninjaonbreak/src/App.vue';
 import ToDoVue from 'vue-todo-ninjaonbreak/src/App.vue';
+// import CurrencyExchangeVue from 'currency-exchange-vue/src/App.vue';
 
 export default {
   components: {
     CalculatorVue,
     ToDoVue,
+    // CurrencyExchangeVue,
   },
 
   data() {
@@ -35,12 +43,6 @@ export default {
       activeComponent: '',
     };
   },
-
-  // computed: {
-  //   activeComponent() {
-  //     return CalculatorVue;
-  //   },
-  // },
 
   methods: {
     selectComponent(value) {
@@ -51,7 +53,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 :root {
