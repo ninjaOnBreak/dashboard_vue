@@ -29,13 +29,13 @@
 <script>
 import CalculatorVue from 'vue-calculator-ninjaonbreak/src/App.vue';
 import ToDoVue from 'vue-todo-ninjaonbreak/src/App.vue';
-// import CurrencyExchangeVue from 'currency-exchange-vue/src/App.vue';
+import CurrencyExchangeVue from 'vue-currency-exchange-ninjaonbreak/src/App.vue';
 
 export default {
   components: {
     CalculatorVue,
     ToDoVue,
-    // CurrencyExchangeVue,
+    CurrencyExchangeVue,
   },
 
   data() {
@@ -53,21 +53,19 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-
+<style lang="scss">
 :root {
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
   --font: Roboto, sans-serif;
-  --textColor: #374961;
-  --linkActiveColor: #41b783;
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+</style>
 
+<style lang="scss" scoped>
 #app {
   font-family: var(--font);
   -webkit-font-smoothing: antialiased;

@@ -11,9 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.12",
-    "vue-router": "^3.4.3"
+    "vue-router": "^3.4.3",
+    "vuex": "^3.6.2",
+    "boxicons": "^2.0.9"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
@@ -37,19 +40,12 @@
     "webpack-dev-server": "^3.11.0",
     "vue-calculator-ninjaonbreak": "https://github.com/ninjaOnBreak/calculator_vue.git#main",
     "vue-todo-ninjaonbreak": "https://github.com/ninjaOnBreak/todo_vue_first.git#main",
-    "vue-currency_exchange": "https://github.com/ninjaOnBreak/exchange_vue.git#main"
+    "vue-currency-exchange-ninjaonbreak": "https://github.com/ninjaOnBreak/exchange_vue.git#main"
   },
   "browserslist": [
-    "Chrome >= 45",
-    "Firefox ESR",
-    "Edge >= 12",
-    "Explorer >= 10",
-    "iOS >= 9",
-    "Safari >= 9",
-    "Android >= 4.4",
-    "Opera >= 30",
     "> 1%",
     "last 2 versions",
+    "not ie <= 8",
     "not dead"
   ]
 }
