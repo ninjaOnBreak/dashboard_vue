@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <header><div class="logo">ninjaOnBreak</div></header>
+    <header>
+      <div class="logo" @click="activeComponent = ''">ninjaOnBreak</div>
+    </header>
     <section>
       <nav class="menu-left">
         <ul class="menu-left__list">
@@ -8,20 +10,84 @@
             class="menu-left__list--item"
             @click="selectComponent('CalculatorVue')"
           >
-            CalculatorVue
+            <div>
+              <span>CalculatorVue</span>
+              <span class="app-desc">Simple math in Vue</span
+              ><box-icon name="calculator" color="#ffffff"></box-icon>
+              <span class="app-desc"
+                ><a
+                  href="https://github.com/ninjaOnBreak/calculator_vue"
+                  target="_blank"
+                  class="github-link"
+                  >Check it on Github</a
+                ></span
+              >
+            </div>
           </li>
           <li class="menu-left__list--item" @click="selectComponent('ToDoVue')">
-            ToDoVue
+            <div>
+              <span>ToDoVue</span>
+              <span class="app-desc">Classic ToDo in Vue</span
+              ><box-icon name="calendar" color="#ffffff"></box-icon>
+              <span class="app-desc"
+                ><a
+                  href="https://github.com/ninjaOnBreak/todo_vue_first"
+                  target="_blank"
+                  class="github-link"
+                  >Check it on Github</a
+                ></span
+              >
+            </div>
           </li>
           <li
             class="menu-left__list--item"
             @click="selectComponent('CurrencyExchangeVue')"
           >
-            CurrencyExchange
+            <div>
+              <span>CurrencyExchange</span>
+              <span class="app-desc">Axios, API and Vuex</span
+              ><box-icon name="dollar-circle" color="#ffffff"></box-icon>
+              <span class="app-desc"
+                ><a
+                  href="https://github.com/ninjaOnBreak/exchange_vue"
+                  target="_blank"
+                  class="github-link"
+                  >Check it on Github</a
+                ></span
+              >
+            </div>
+          </li>
+          <li
+            class="menu-left__list--item"
+            @click="selectComponent('CurrencyExchangeVue')"
+          >
+            <div>
+              <span>CV Generator</span>
+              <span class="app-desc">Vuetify / validation</span
+              ><box-icon name="file" color="#ffffff"></box-icon>
+              <span class="app-desc"
+                ><a href="#" target="_blank" class="github-link"
+                  >Coming soon!</a
+                ></span
+              >
+            </div>
+          </li>
+          <li
+            class="menu-left__list--item"
+            @click="selectComponent('CurrencyExchangeVue')"
+          >
+            <div>
+              <span>TicTacToe</span>
+              <span class="app-desc">Coming soon!</span
+              ><box-icon name="grid" type="solid" color="#ffffff"></box-icon>
+            </div>
           </li>
         </ul>
       </nav>
-      <main><component :is="activeComponent"></component></main>
+      <main>
+        <component :is="activeComponent"></component>
+        <div v-if="activeComponent === ''" class="ninja-bgc"></div>
+      </main>
     </section>
   </div>
 </template>
@@ -41,6 +107,7 @@ export default {
   data() {
     return {
       activeComponent: '',
+      ninjaImage: '<img src="./assets/ninja_img_text.jpg">',
     };
   },
 
@@ -71,7 +138,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: var(--textColor);
+  background-color: #f7f6f1;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -85,6 +152,7 @@ export default {
 
     .logo {
       align-self: flex-start;
+      cursor: pointer;
     }
   }
 
@@ -94,29 +162,86 @@ export default {
     height: 100%;
 
     .menu-left {
-      width: 15%;
+      background-color: #374961;
 
       .menu-left__list {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        height: 25vh;
+        justify-content: flex-start;
+        position: relative;
+        height: 90vh;
 
         .menu-left__list--item {
-          height: 10vh;
-          width: 90%;
-          min-width: 110px;
-          line-height: 10vh;
+          position: relative;
+          height: 100px;
+          // width: 150px;
+          margin: 10px 0;
+          cursor: pointer;
+        }
+
+        .menu-left__list--item div {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          flex-wrap: wrap;
+          position: absolute;
+          top: 0;
+          left: -170px;
+          width: 220px;
+          height: 100px;
+          padding: 0 10px;
+          // line-height: 100px;
           color: white;
           background-color: #374961;
-          border-radius: 5px;
+          border-radius: 15px;
+          transition: 0.3s;
+
+          span {
+            margin: 0 25px;
+            padding-right: 25px;
+
+            a {
+              color: white;
+              text-decoration: none;
+            }
+
+            .github-link:hover {
+              color: rgb(199, 199, 199);
+            }
+          }
+
+          .app-desc {
+            font-size: 12px;
+          }
+
+          box-icon {
+            position: absolute;
+            top: 38px;
+            right: 10spx;
+          }
+        }
+
+        .menu-left__list--item:hover div {
+          left: -10px;
+        }
+
+        .show {
+          left: -10px;
         }
       }
     }
 
     main {
+      width: 90%;
       flex-grow: 1;
+
+      .ninja-bgc {
+        height: 100%;
+        background-image: url('./assets/ninja_img_text.jpg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
     }
   }
 }

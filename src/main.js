@@ -4,9 +4,7 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import 'boxicons';
 
-import store from 'vue-currency_exchange-ninjaonbreak/src/store';
-// store.registerModule('CurrencyModule');
-
+import store from 'vue-currency-exchange-ninjaonbreak/src/store';
 Vue.use(VueAxios, axios);
 
 new Vue({
