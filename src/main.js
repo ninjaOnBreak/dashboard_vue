@@ -1,11 +1,9 @@
 import Vue from 'vue';
 import App from './App.vue';
-import axios from 'axios';
-import VueAxios from 'vue-axios';
 import 'boxicons';
 
 import store from 'vue-currency-exchange-ninjaonbreak/src/store';
-Vue.use(VueAxios, axios);
+// import store from './store';
 
 new Vue({
   store,

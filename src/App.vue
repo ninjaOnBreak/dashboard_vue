@@ -107,7 +107,6 @@ export default {
   data() {
     return {
       activeComponent: '',
-      ninjaImage: '<img src="./assets/ninja_img_text.jpg">',
     };
   },
 
@@ -217,7 +216,7 @@ export default {
           box-icon {
             position: absolute;
             top: 38px;
-            right: 10spx;
+            right: 10px;
           }
         }
 
