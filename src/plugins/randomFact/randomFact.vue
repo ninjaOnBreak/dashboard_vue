@@ -1,23 +1,23 @@
 <template>
   <div>
     <div>This is true:</div>
-    <div>{{ randomText }}</div>
+    <div>{{ randomFact }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'get-random-text',
+  name: 'get-random-fact',
   data() {
     return {
-      randomText: '',
+      randomFact: '',
     };
   },
   async created() {
     const response = await fetch(
       'https://uselessfacts.jsph.pl/random.json?language=en'
     ).then((response) => response.json());
-    this.randomText = response.text;
+    this.randomFact = response.text;
   },
 };
 </script>

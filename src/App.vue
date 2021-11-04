@@ -2,6 +2,12 @@
   <div id="app">
     <header>
       <div class="logo" @click="activeComponent = ''">ninjaOnBreak</div>
+      <div class="button-random" @click="randomModal = !randomModal">
+        Click for random
+      </div>
+      <div v-if="randomModal === true" class="modal-random">
+        <randomFact />
+      </div>
     </header>
     <section>
       <nav class="menu-left">
@@ -96,19 +102,18 @@
 import CalculatorVue from 'vue-calculator-ninjaonbreak/src/App.vue';
 import ToDoVue from 'vue-todo-ninjaonbreak/src/App.vue';
 import CurrencyExchangeVue from 'vue-currency-exchange-ninjaonbreak/src/App.vue';
-// import RandomText from './plugins/randomText/randomText';
 
 export default {
   components: {
     CalculatorVue,
     ToDoVue,
     CurrencyExchangeVue,
-    // RandomText,
   },
 
   data() {
     return {
       activeComponent: '',
+      randomModal: false,
     };
   },
 
@@ -147,13 +152,25 @@ export default {
 
   header {
     display: flex;
+    justify-content: space-between;
+    position: relative;
     background-color: #374961;
     color: white;
     padding: 10px;
 
-    .logo {
-      align-self: flex-start;
+    .logo,
+    .button-random {
       cursor: pointer;
+    }
+
+    .modal-random {
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      width: 30vw;
+      padding: 20px;
+      background-color: #374961;
+      border-radius: 7px;
     }
   }
 
