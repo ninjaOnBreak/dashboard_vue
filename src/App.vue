@@ -96,12 +96,14 @@
 import CalculatorVue from 'vue-calculator-ninjaonbreak/src/App.vue';
 import ToDoVue from 'vue-todo-ninjaonbreak/src/App.vue';
 import CurrencyExchangeVue from 'vue-currency-exchange-ninjaonbreak/src/App.vue';
+// import RandomText from './plugins/randomText/randomText';
 
 export default {
   components: {
     CalculatorVue,
     ToDoVue,
     CurrencyExchangeVue,
+    // RandomText,
   },
 
   data() {
