@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <div class="logo" @click="activeComponent = ''">ninjaOnBreak</div>
+      <router-link to="/"><div class="logo">ninjaOnBreak</div></router-link>
       <div class="button-random" @click="randomModal = !randomModal">
         Click for random
       </div>
@@ -12,61 +12,62 @@
     <section>
       <nav class="menu-left">
         <ul class="menu-left__list">
-          <li
-            class="menu-left__list--item"
-            @click="selectComponent('CalculatorVue')"
+          <router-link to="/calculator"
+            ><li class="menu-left__list--item">
+              <div>
+                <span>CalculatorVue</span>
+                <span class="app-desc">Simple math in Vue</span
+                ><box-icon name="calculator" color="#ffffff"></box-icon>
+                <span class="app-desc"
+                  ><a
+                    href="https://github.com/ninjaOnBreak/calculator_vue"
+                    @click.stop
+                    target="_blank"
+                    class="github-link"
+                  >
+                    Check it on Github
+                  </a></span
+                >
+              </div>
+            </li></router-link
           >
-            <div>
-              <span>CalculatorVue</span>
-              <span class="app-desc">Simple math in Vue</span
-              ><box-icon name="calculator" color="#ffffff"></box-icon>
-              <span class="app-desc"
-                ><a
-                  href="https://github.com/ninjaOnBreak/calculator_vue"
-                  target="_blank"
-                  class="github-link"
-                  >Check it on Github</a
-                ></span
-              >
-            </div>
-          </li>
-          <li class="menu-left__list--item" @click="selectComponent('ToDoVue')">
-            <div>
-              <span>ToDoVue</span>
-              <span class="app-desc">Classic ToDo in Vue</span
-              ><box-icon name="calendar" color="#ffffff"></box-icon>
-              <span class="app-desc"
-                ><a
-                  href="https://github.com/ninjaOnBreak/todo_vue_first"
-                  target="_blank"
-                  class="github-link"
-                  >Check it on Github</a
-                ></span
-              >
-            </div>
-          </li>
-          <li
-            class="menu-left__list--item"
-            @click="selectComponent('CurrencyExchangeVue')"
+          <router-link to="/todo"
+            ><li class="menu-left__list--item">
+              <div>
+                <span>ToDoVue</span>
+                <span class="app-desc">Classic ToDo in Vue</span
+                ><box-icon name="calendar" color="#ffffff"></box-icon>
+                <span class="app-desc"
+                  ><a
+                    href="https://github.com/ninjaOnBreak/todo_vue_first"
+                    @click.stop
+                    target="_blank"
+                    class="github-link"
+                    >Check it on Github</a
+                  ></span
+                >
+              </div>
+            </li></router-link
           >
-            <div>
-              <span>CurrencyExchange</span>
-              <span class="app-desc">Axios, API and Vuex</span
-              ><box-icon name="dollar-circle" color="#ffffff"></box-icon>
-              <span class="app-desc"
-                ><a
-                  href="https://github.com/ninjaOnBreak/exchange_vue"
-                  target="_blank"
-                  class="github-link"
-                  >Check it on Github</a
-                ></span
-              >
-            </div>
-          </li>
-          <li
-            class="menu-left__list--item"
-            @click="selectComponent('CurrencyExchangeVue')"
+          <router-link to="/currency"
+            ><li class="menu-left__list--item">
+              <div>
+                <span>CurrencyExchange</span>
+                <span class="app-desc">Axios, API and Vuex</span
+                ><box-icon name="dollar-circle" color="#ffffff"></box-icon>
+                <span class="app-desc"
+                  ><a
+                    href="https://github.com/ninjaOnBreak/exchange_vue"
+                    @click.stop
+                    target="_blank"
+                    class="github-link"
+                    >Check it on Github</a
+                  ></span
+                >
+              </div>
+            </li></router-link
           >
+          <li class="menu-left__list--item">
             <div>
               <span>CV Generator</span>
               <span class="app-desc">Vuetify / validation</span
@@ -78,10 +79,7 @@
               >
             </div>
           </li>
-          <li
-            class="menu-left__list--item"
-            @click="selectComponent('CurrencyExchangeVue')"
-          >
+          <li class="menu-left__list--item">
             <div>
               <span>TicTacToe</span>
               <span class="app-desc">Coming soon!</span
@@ -91,37 +89,18 @@
         </ul>
       </nav>
       <main>
-        <component :is="activeComponent"></component>
-        <div v-if="activeComponent === ''" class="ninja-bgc"></div>
+        <router-view />
       </main>
     </section>
   </div>
 </template>
 
 <script>
-import CalculatorVue from 'vue-calculator-ninjaonbreak/src/App.vue';
-import ToDoVue from 'vue-todo-ninjaonbreak/src/App.vue';
-import CurrencyExchangeVue from 'vue-currency-exchange-ninjaonbreak/src/App.vue';
-
 export default {
-  components: {
-    CalculatorVue,
-    ToDoVue,
-    CurrencyExchangeVue,
-  },
-
   data() {
     return {
-      activeComponent: '',
       randomModal: false,
     };
-  },
-
-  methods: {
-    selectComponent(value) {
-      console.log(value);
-      this.activeComponent = value;
-    },
   },
 };
 </script>
@@ -153,7 +132,9 @@ export default {
   header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: relative;
+    height: 5vh;
     background-color: #374961;
     color: white;
     padding: 10px;
@@ -161,6 +142,8 @@ export default {
     .logo,
     .button-random {
       cursor: pointer;
+      color: white;
+      text-decoration: none;
     }
 
     .modal-random {
@@ -253,13 +236,13 @@ export default {
       width: 90%;
       flex-grow: 1;
 
-      .ninja-bgc {
-        height: 100%;
-        background-image: url('./assets/ninja_img_text.jpg');
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
+      // .ninja-bgc {
+      //   height: 100%;
+      //   background-image: url('./assets/ninja_img_text.jpg');
+      //   background-size: contain;
+      //   background-position: center;
+      //   background-repeat: no-repeat;
+      // }
     }
   }
 }
