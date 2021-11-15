@@ -67,18 +67,25 @@
               </div>
             </li></router-link
           >
-          <li class="menu-left__list--item">
-            <div>
-              <span>CV Generator</span>
-              <span class="app-desc">Vuetify / validation</span
-              ><box-icon name="file" color="#ffffff"></box-icon>
-              <span class="app-desc"
-                ><a href="#" target="_blank" class="github-link"
-                  >Coming soon!</a
-                ></span
-              >
-            </div>
-          </li>
+          <router-link to="/cv-generator"
+            ><li class="menu-left__list--item">
+              <div>
+                <span>CV Generator</span>
+                <span class="app-desc">Vuelidate/Vuex/Router</span
+                ><box-icon name="file" color="#ffffff"></box-icon>
+                <span class="app-desc"
+                  ><a
+                    href="https://github.com/ninjaOnBreak/cv_from_forms_vue"
+                    @click.stop
+                    target="_blank"
+                    class="github-link"
+                    >Check it on Github</a
+                  ></span
+                >
+              </div>
+            </li></router-link
+          >
+
           <li class="menu-left__list--item">
             <div>
               <span>TicTacToe</span>

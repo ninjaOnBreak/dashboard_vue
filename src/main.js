@@ -5,8 +5,7 @@ import router from './router';
 import 'boxicons';
 import randomFact from './plugins/randomFact';
 
-import store from 'vue-currency-exchange-ninjaonbreak/src/store';
-// import store from './store';
+import store from './store';
 
 Vue.use(randomFact);
 
