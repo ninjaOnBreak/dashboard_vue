@@ -3,10 +3,14 @@
     <header>
       <router-link to="/"><div class="logo">ninjaOnBreak</div></router-link>
       <div class="button-random" @click="randomModal = !randomModal">
-        Click for random
+        Random fact
       </div>
       <div v-if="randomModal === true" class="modal-random">
         <randomFact />
+      </div>
+      <div class="button-random" @click="sendClick">Random joke</div>
+      <div v-if="randomJokeModal === true" class="modal-random">
+        {{ randomJoke }}
       </div>
     </header>
     <section>
@@ -67,7 +71,7 @@
               </div>
             </li></router-link
           >
-          <router-link to="/cv-generator"
+          <router-link to="/cvgenerator"
             ><li class="menu-left__list--item">
               <div>
                 <span>CV Generator</span>
@@ -103,11 +107,32 @@
 </template>
 
 <script>
+import eventBus from './eventBus';
+import testingMount from './components/testingMount.vue';
+
 export default {
+  components: {
+    testingMount,
+  },
+
   data() {
     return {
       randomModal: false,
+      randomJokeModal: false,
+      randomJoke: '',
     };
+  },
+
+  methods: {
+    sendClick() {
+      eventBus.$emit('clicked');
+    },
+  },
+
+  mounted() {
+    eventBus.$on('clickedImage', () => {
+      console.log('EventBus działa w dwie strony');
+    });
   },
 };
 </script>

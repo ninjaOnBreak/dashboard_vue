@@ -41,8 +41,7 @@
     "webpack-dev-server": "^3.11.0",
     "vue-calculator-ninjaonbreak": "https://github.com/ninjaOnBreak/calculator_vue.git#main",
     "vue-todo-ninjaonbreak": "https://github.com/ninjaOnBreak/todo_vue_first.git#main",
-    "vue-currency-exchange-ninjaonbreak": "https://github.com/ninjaOnBreak/exchange_vue.git#main",
-    "vue-cv-from-forms-ninjaonbreak": "https://github.com/ninjaOnBreak/cv_from_forms_vue.git#main"
+    "vue-currency-exchange-ninjaonbreak": "https://github.com/ninjaOnBreak/exchange_vue.git#main"
   },
   "browserslist": [
     "> 1%",

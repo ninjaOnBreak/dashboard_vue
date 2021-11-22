@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import CVrouter from 'vue-cv-from-forms-ninjaonbreak/src/router';
+// import CVGenerator from 'vue-cv-from-forms-ninjaonbreak';
 
 Vue.use(VueRouter);
+// Vue.use(CVGenerator);
 
 const routes = [
   {
@@ -25,12 +26,16 @@ const routes = [
     name: 'CurrencyExchange',
     component: () => import('vue-currency-exchange-ninjaonbreak/src/App.vue'),
   },
-  {
-    path: '/cv-generator',
-    name: 'CVGenerator',
-    component: () => import('vue-cv-from-forms-ninjaonbreak/src/App.vue'),
-    children: [{}],
-  },
+  // {
+  //   path: '/cvgenerator',
+  //   name: 'CVGenerator',
+  //   component: CVGenerator,
+  //   children: [
+  //     {
+  //       path: '',
+  //     },
+  //   ],
+  // },
 ];
 
 const router = new VueRouter({
